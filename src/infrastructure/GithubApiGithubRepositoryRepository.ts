@@ -1,3 +1,19 @@
+import { CiStatus, GitHubApiResponses, PullRequest, RepositoryData } from "./GithubApiReponse";
+
+interface RepositoryId {
+	name: string;
+	organitzation: string;
+}
+
+export class GithubApiGithubRepositoryRepository {
+	private readonly endpoints = [
+		"https://api.github.com/repos/$organitzation/$name",
+		"https://api.github.com/repos/$organitzation/$name/pulls",
+		"https://api.github.com/repos/$organitzation/$name/actions/runs?page=1&per_page=1",
+	];
+
+	constructor(private readonly personalAccessToken: string) {}
+
 	async search(repositoryUrls: string[]): Promise<GitHubApiResponses[]> {
 		const responsePromises = repositoryUrls
 			.map((url) => this.urlToId(url))
@@ -33,3 +49,4 @@
 			organitzation: splitUrl.pop() as string,
 		};
 	}
+}
