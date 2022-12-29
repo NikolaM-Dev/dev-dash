@@ -21,7 +21,7 @@ export const config: DevDashConfig = {
 		},
 		{
 			id: "962fedd1-4281-4f50-a120-fe42e03b223d",
-			repository_url: "https://github.com/CodelyTV/refactor-code-smells",
+			repository_url: "https://github.com/CodelyTV/refactoring-code-smells",
 		},
 	],
 };
