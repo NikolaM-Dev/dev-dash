@@ -1,4 +1,7 @@
-import { InMemoryGithubRepositoryRepository } from "../../infrastructure";
+import { useEffect, useState } from "react";
+
+import { config } from "../../devdash_config";
+import { GithubApiGithubRepositoryRepository, GitHubApiResponses } from "../../infrastructure";
 import { ReactComponent as Brand } from "./brand.svg";
 import { ReactComponent as Check } from "./check.svg";
 import styles from "./Dashboard.module.scss";
@@ -28,10 +31,18 @@ const isoToReadableDate = (lastUpdate: string): string => {
 	return `${diffDays} days ago`;
 };
 
-const repository = new InMemoryGithubRepositoryRepository();
-const repositories = repository.search();
+const repository = new GithubApiGithubRepositoryRepository(config.github_access_token);
 
 export const Dashboard = (): JSX.Element => {
+	const [repositories, setRepositories] = useState<GitHubApiResponses[]>([]);
+
+	useEffect(() => {
+		repository
+			.search(config.widgets.map((widget) => widget.repository_url))
+			.then((repositories) => setRepositories(repositories))
+			.catch(() => console.error);
+	}, []);
+
 	return (
 		<>
 			<header className={styles.header}>
