@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { config } from "../../devdash_config";
-import { GithubApiGithubRepositoryRepository, GitHubApiResponses } from "../../infrastructure";
+import { GitHubApiGitHubRepositoryRepository, GitHubApiResponses } from "../../infrastructure";
 import { ReactComponent as Brand } from "./brand.svg";
 import { ReactComponent as Check } from "./check.svg";
 import styles from "./Dashboard.module.scss";
