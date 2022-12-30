@@ -1,11 +1,11 @@
-import { CiStatus, GitHubApiResponses, PullRequest, RepositoryData } from "./GithubApiReponse";
+import { CiStatus, GitHubApiResponses, PullRequest, RepositoryData } from "./GitHubApiReponse";
 
 interface RepositoryId {
 	name: string;
 	organitzation: string;
 }
 
-export class GithubApiGithubRepositoryRepository {
+export class GitHubApiGitHubRepositoryRepository {
 	private readonly endpoints = [
 		"https://api.github.com/repos/$organitzation/$name",
 		"https://api.github.com/repos/$organitzation/$name/pulls",

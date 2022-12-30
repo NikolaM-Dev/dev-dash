@@ -6977,7 +6977,7 @@ const refactoringCodeSmellsResponses = {
 	},
 };
 
-export const githubApiResponses = [
+export const gitHubApiResponses = [
 	dotlyResponses,
 	eslintPluginHexagonalArchitecturaResponses,
 	refactoringCodeSmellsResponses,
